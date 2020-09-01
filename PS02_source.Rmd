@@ -49,11 +49,6 @@ Once you have opened the document:
 *  Change the author field to your First and Last name (example, `author: "John Smith"`).
 
 
-Finally, save the new document:
-
--  File > Save As
--  set the file name as `ps02_lastname_firstname` (example, `ps02_smith_john`)
-
 ## R Packages
 
 R Packages are like apps on a cell phone - they are tools for accomplishing common tasks. R is an open-source programming language, meaning that people can contribute packages that make our lives easier, and we can use them for free.  For this problem set, the following R packages will be used:
