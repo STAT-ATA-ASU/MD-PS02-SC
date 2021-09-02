@@ -291,7 +291,10 @@ library(readr)</code></pre>
 <div id="the-data" class="section level2" number="1.2">
 <h2><span class="header-section-number">1.2</span> The Data</h2>
 <p>Today, we will practice data visualization using data on births from the state of North Carolina. The code below reads a <code>*.CSV</code> file from a URL into the object <code>nc</code>.</p>
-<pre class="r"><code>nc &lt;- read_csv(&quot;https://docs.google.com/spreadsheets/d/e/2PACX-1vTm2WZwNBoQdZhMgot7urbtu8eG7tzAq-60ZJsQ_nupykCAcW0OXebVpHksPWyR4x8xJTVQ8KAulAFS/pub?gid=202410847&amp;single=true&amp;output=csv&quot;)</code></pre>
+<pre class="r"><code>url &lt;- &quot;https://docs.google.com/spreadsheets/d/e/2PACX-1vTm2WZwNBoQdZhMgot7urbtu8eG7tzAq-60ZJsQ_nupykCAcW0OXebVpHksPWyR4x8xJTVQ8KAulAFS/pub?gid=202410847&amp;single=true&amp;output=csv&quot;
+if(!file.exists(&quot;./nc.csv&quot;)){
+    download.file(url, destfile = &quot;./nc.csv&quot;)}
+nc &lt;- read_csv(&quot;./nc.csv&quot;)</code></pre>
 <p>The data set that displays in your Environment is a large <strong>data frame</strong>. Each observation or <strong>case</strong> is a birth of a single child.</p>
 <p>The workspace area in the upper right hand corner of the R Studio window should now list a data set called <code>nc</code> with 800 observations (rows or cases) and 13 variables (columns).</p>
 </div>

@@ -78,7 +78,10 @@ Remember, "running code means" telling R "do this". You tell R to do something b
 Today, we will practice data visualization using data on births from the state of North Carolina. The code below reads a `*.CSV` file from a URL into the object `nc`.  
 
 ```{r}
-nc <- read_csv("https://docs.google.com/spreadsheets/d/e/2PACX-1vTm2WZwNBoQdZhMgot7urbtu8eG7tzAq-60ZJsQ_nupykCAcW0OXebVpHksPWyR4x8xJTVQ8KAulAFS/pub?gid=202410847&single=true&output=csv")
+url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vTm2WZwNBoQdZhMgot7urbtu8eG7tzAq-60ZJsQ_nupykCAcW0OXebVpHksPWyR4x8xJTVQ8KAulAFS/pub?gid=202410847&single=true&output=csv"
+if(!file.exists("./nc.csv")){
+    download.file(url, destfile = "./nc.csv")}
+nc <- read_csv("./nc.csv")
 ```
 
 The data set that displays in your Environment is a large **data frame**. Each observation or **case** is a birth of a single child. 
