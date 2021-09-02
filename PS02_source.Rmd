@@ -179,7 +179,7 @@ Type your complete sentence answer here using inline R code and delete this comm
      
      **B.** How many **variables** are now displayed on this plot?  
      
-     **C.** What appears to (roughly) be the pregnancy length cutoff for classifying a newborn as a "premie"" versus a "full term". 
+     **C.** What appears to (roughly) be the pregnancy length cutoff for classifying a newborn as a "premie" versus a "full term". 
 
 ```{r fig.height=3, fig.width=5, warning=F}
 ggplot(data = nc, aes(x = weeks, y = gained, color = premie))+ 
