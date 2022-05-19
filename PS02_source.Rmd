@@ -100,11 +100,16 @@ glimpse(nc)
 
 We can see that there are `r dim(nc)[1]` observations and `r dim(nc)[2]` variables in this data set. It is good practice to see if R is treating variables as factors `<fct>`; as numbers `<int>` or `<dbl>` (basically numbers with decimals); or as characters (i.e. text) `<chr>`.  The variable names are `fage`, `mage`, `mature`, etc. The output from `glimpse(nc)` tells us that six of the variables are numbers with decimals (`<dbl>`).  The other seven variables are character (`<chr>`). 
 
+__________
+
 1. What type of variable is R considering the variable `habit` to be? What variable type is `visits`? (answer with text)
 
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
+```{r}
+
+```
 
 
 </div> 
@@ -162,6 +167,7 @@ ggplot(data = nc, aes(x = weeks, y = weight)) +
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
++ 
 
 </div> 
 
@@ -202,6 +208,12 @@ Type your complete sentence answer here using inline R code and delete this comm
 **C.** 
 
 
+```{r}
+
+```
+
+
+
 </div> 
 
 5. Make a new scatterplot that shows a mothers age on the x axis (variable called `mage`) and birth weight of newborns on the y axis (`weight`). Color the points on the plot based on the gender of the resulting baby (variable called `gender`). Does there appear to be any strong relationship between a mother's age and the weight of her newborn? (code and text to answer)
@@ -210,15 +222,12 @@ Type your complete sentence answer here using inline R code and delete this comm
 # Type your code and comments inside the code chunk
 
 
-
-
-
 ```
 
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++   
 
 </div> 
 
@@ -249,7 +258,8 @@ We can change the binwidth (and thus the number of bins), and the colors as show
 
 ```{r fig.height = 3, fig.width = 5, warning = FALSE}
 ggplot(data = nc, aes(x = weeks))+ 
-  geom_histogram(binwidth = 1, color = "white", fill = "steelblue")
+  geom_histogram(binwidth = 1, color = "black", fill = "steelblue") + 
+  theme_bw()
 ```
 
 Note that none of these arguments went inside the `aes`thetic `mapping` argument as they do not specifically represent mappings of variables. 
@@ -271,12 +281,20 @@ Type your complete sentence answer here using inline R code and delete this comm
 **B.** 
 
 
+```{r}
+
+```
+
 **C.** 
 
 
+```{r}
+
+```
+
 </div> 
 
-7.  Make a histogram of the birth `weight` of newborns (which is in lbs), include a descriptive title and axis labels.  Make the bins pink with a blue border. (code only to answer)
+7.  Make a histogram of the birth `weight` of newborns (which is in lbs), include a descriptive title and axis labels.  Make the bins lightblue with a blue border and a binwidth  of 1. (code only to answer)
 
 ```{r}
 # Type your code and comments inside the code chunk
@@ -289,6 +307,7 @@ Type your complete sentence answer here using inline R code and delete this comm
   
 ```
 
+___________
 
 ### Faceting{-} 
 Faceting is used to create small multiples of the same plot over a different categorical variable. By default, all of the small multiples will have the same vertical axis.
@@ -297,30 +316,29 @@ For example, suppose we are interested in looking at whether pregnancy length va
 
 ```{r fig.height = 3, fig.width = 4}
 ggplot(data = nc, aes(x = weeks)) +
-  geom_histogram(binwidth = 1, color = "white", fill = "steelblue") +
-  facet_wrap(~ mature, ncol = 1)
+  geom_histogram(binwidth = 1, color = "blue", fill = "lightblue") +
+  facet_wrap(~ mature, ncol = 1) + 
+  theme_bw()
 # Or
 ggplot(data = nc, aes(x = weeks)) +
-  geom_histogram(binwidth = 1, color = "white", fill = "steelblue") +
-  facet_wrap(facets = vars(mature), ncol = 1)
+  geom_histogram(binwidth = 1, color = "blue", fill = "lightblue") +
+  facet_wrap(facets = vars(mature), ncol = 1) + 
+  theme_bw()
 ```
 
+__________
 
-8.  Make a histogram of newborn birth `weight` split by `gender` of the child. Set the binwidth to 0.5. Which gender appears to have a slightly larger average birth weight? (code and text to answer)
+8.  Make a histogram of newborn birth `weight` split by `gender` of the child. Set the binwidth to 0.5. Which gender appears to have a slightly larger average birth weight? **Extra Credit:** Have the bins of the female histogram a different color than the bins of the male histogram.  Outline the bins of both histograms in black. (code and text to answer)
 
 ```{r}
 # Type your code and comments inside the code chunk
-
-
-
 
 ```
 
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
-
++
 
 </div> 
 
@@ -335,7 +353,7 @@ While histograms can help to show the distribution of data, boxplots have much m
 
 ```{r fig.height = 3, fig.width = 4}
 ggplot(data = nc, aes(x = gender, y = gained)) +
-  geom_boxplot(fill = "chocolate1") + 
+  geom_boxplot(fill = "wheat") + 
   theme_bw()
 ```
 
@@ -366,12 +384,11 @@ For review, these are the different parts of the boxplot: '
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
-
++     
 
 </div> 
 
-10. Make a boxplot of pregnancy duration in `weeks` by smoking `habit`. Is the duration of pregnancy more **variable** for smokers or non-smokers? (i.e. which group has the greater spread for the variable `weeks`?). (code and text to answer)
+10. Make a boxplot of pregnancy duration in `weeks` by smoking `habit`. Is the duration of pregnancy more **variable** for smokers or non-smokers? (i.e. which group has the greater spread for the variable `weeks`?  Make sure to specify how you are measuring spread in your answer). 
 
 ```{r}
 # Type your code and comments inside the code chunk
@@ -384,7 +401,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 Type your complete sentence answer here using inline R code and delete this comment.
 
 
-
++   
 
 </div> 
 
@@ -414,7 +431,7 @@ For the following, determine which type of plot to use, **make the plot** and an
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++   
 
 </div> 
 
@@ -430,6 +447,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
++ 
 
 </div> 
 
@@ -446,7 +464,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 <div id="answer">
 Type your complete sentence answer here using inline R code and delete this comment.
 
-
++   
 
 </div> 
 
@@ -460,6 +478,7 @@ This table is a great resource for thinking about how to visualize data.
 Table 3.5 from Modern Dive 
 http://moderndive.netlify.com/index.html
 
+____________
 
 # Logging out of the Server
 
@@ -468,5 +487,4 @@ http://moderndive.netlify.com/index.html
 - Click on the icon of your name in the top right to log out
 - You are signed out! 
 
-
-* * *
+____________
