@@ -79,9 +79,11 @@ Today, we will practice data visualization using data on births from the state o
 
 ```{r}
 url <- "https://docs.google.com/spreadsheets/d/e/2PACX-1vTm2WZwNBoQdZhMgot7urbtu8eG7tzAq-60ZJsQ_nupykCAcW0OXebVpHksPWyR4x8xJTVQ8KAulAFS/pub?gid=202410847&single=true&output=csv"
-if(!file.exists("./nc.csv")){
-    download.file(url, destfile = "./nc.csv")}
-nc <- read_csv("./nc.csv")
+if(!dir.exists("./data/"))
+{dir.create("./data/")}
+if(!file.exists("./data/nc.csv")){
+    download.file(url, destfile = "./data/nc.csv")}
+nc <- read_csv("./data/nc.csv")
 ```
 
 The data set that displays in your Environment is a large **data frame**. Each observation or **case** is a birth of a single child. 
@@ -113,6 +115,8 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 
 </div> 
+
+____________
 
 ## The Data Viewer
 
@@ -162,6 +166,8 @@ ggplot(data = nc, aes(x = weeks, y = weight)) +
        title = "Relationship between pregnancy duration and newborn weight")
 ```
 
+____________
+
 2. Is there a positive or negative relationship between `weight` and `weeks`? (text only to answer)
 
 <div id="answer">
@@ -171,6 +177,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
+____________
 
 3.  Make a graph showing `weeks` again on the x axis and the variable `gained` on the y axis (the amount of weight a mother gained during pregnancy).  Include axis labels with measurement units, and a title. (code only to answer)
 
@@ -181,6 +188,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 ```
 
+____________
 
 4.  Study the code below, and the resulting graphical output. Note that I added a new argument of `color = premie` **inside** the `aes`thetic mapping. The variable `premie` indicates whether a birth was early (premie) or went full term. Please answer with text:
 
@@ -212,9 +220,9 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 ```
 
-
-
 </div> 
+
+____________
 
 5. Make a new scatterplot that shows a mothers age on the x axis (variable called `mage`) and birth weight of newborns on the y axis (`weight`). Color the points on the plot based on the gender of the resulting baby (variable called `gender`). Does there appear to be any strong relationship between a mother's age and the weight of her newborn? (code and text to answer)
 
@@ -230,6 +238,8 @@ Type your complete sentence answer here using inline R code and delete this comm
 +   
 
 </div> 
+
+____________
 
 <div id="instructions">
 Make sure your document is knitting, and that your html file includes Exercise headers, text, and code. Note that knitting automatically saves your Rmd file too.
@@ -264,6 +274,8 @@ ggplot(data = nc, aes(x = weeks))+
 
 Note that none of these arguments went inside the `aes`thetic `mapping` argument as they do not specifically represent mappings of variables. 
 
+____________
+
 6. Inspect the histogram of the `weeks` variable. Answer each of the following with **text**. 
 
     **A.** The y axis is labeled **count**. What is specifically being counted in this case? Hint: think about what each case is in this data set. 
@@ -293,6 +305,8 @@ Type your complete sentence answer here using inline R code and delete this comm
 ```
 
 </div> 
+
+____________
 
 7.  Make a histogram of the birth `weight` of newborns (which is in lbs), include a descriptive title and axis labels.  Make the bins lightblue with a blue border and a binwidth  of 1. (code only to answer)
 
@@ -342,10 +356,13 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
+____________
+
 <div id="instructions">
 Make sure your document is knitting, and that your html file includes Exercise headers, text, and code. Note that knitting automatically saves your Rmd file too.
 </div>
 
+____________
 
 ## Boxplots
 
@@ -369,6 +386,7 @@ For review, these are the different parts of the boxplot: '
 - The dots represent values falling outside the whiskers or outliers. The definition of an outlier is somewhat arbitrary and not absolute. In this case, they are defined by the length of the whiskers, which are no more than 1.5 x IQR units long.
 </div>
 
+____________
 
 9. Make a boxplot of the weight `gained` by moms, split by the maturity status of the mothers (`mature`).  Include axis labels and a title on your plot. Is the **median** weight gain during pregnancy larger for younger or older moms? (text and code)
 
@@ -388,6 +406,8 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
+____________
+
 10. Make a boxplot of pregnancy duration in `weeks` by smoking `habit`. Is the duration of pregnancy more **variable** for smokers or non-smokers? (i.e. which group has the greater spread for the variable `weeks`?  Make sure to specify how you are measuring spread in your answer). 
 
 ```{r}
@@ -405,18 +425,19 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
+____________
+
 <div id="instructions">
 Make sure your document is knitting, and that your html file includes Exercise headers, text, and code. Note that knitting automatically saves your Rmd file too!
 </div>
 
-
-
-------
+____________
 
 
 # More Practice 
 For the following, determine which type of plot to use, **make the plot** and answer any questions with **text**. There is a table at the end of this document that can help you determine which plot to use given the question/types of variables. 
 
+____________
 
 11. Using a data visualization, visually assess: Is the variable for father's age (`fage`) symmetrical, or does it have a skew?
 
@@ -435,6 +456,8 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
+____________
+
 12. Using a data visualization, visually assess: (in this sample) is the median birth `weight` of babies greater for white or non-white mothers (variable called `whitemom`)?
 
 ```{r}
@@ -450,6 +473,8 @@ Type your complete sentence answer here using inline R code and delete this comm
 + 
 
 </div> 
+
+____________
 
 13. Using a data visualization, visually assess: (in this sample) as a mother's age (`mage`) increases, does the duration of pregnancy (`weeks`) appear to decrease? 
 
@@ -468,7 +493,7 @@ Type your complete sentence answer here using inline R code and delete this comm
 
 </div> 
 
-------
+____________
 
 # Data Visualization Table
 This table is a great resource for thinking about how to visualize data. 
