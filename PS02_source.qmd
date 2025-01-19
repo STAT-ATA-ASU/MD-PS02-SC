@@ -37,7 +37,7 @@ A graphic can be broken into three **essential** components:
 # Getting Set up
 
 ::: {.callout-warning title="Directions"}
-Type complete sentences to answer all questions in the Quarto document. Round all numeric answers you report to four decimal places. Use inline `R` code to report all numeric answers (i.e. do not hard code your numeric answers).
+Type complete sentences to answer all questions in the Quarto document. Round all numeric answers you report to two decimal places. Use inline `R` code to report all numeric answers (i.e. do not hard code your numeric answers).
 
 Remember to save your work as you go along. Click the floppy disk (save current document) button in the upper left hand corner of the Quarto source panel.
 :::
